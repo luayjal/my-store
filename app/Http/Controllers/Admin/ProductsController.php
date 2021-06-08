@@ -1,0 +1,151 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+class ProductsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $products = product::with('category')
+        ->latest()
+        ->orderBy('name','ASC')
+        ->paginate(5);
+
+        return view('admin.products.index',[
+            'products' => $products,
+            'categories' => Category::all(),
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.products.create',[
+            'product'=> new product(),
+            'categories'=>Category::all(),
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+       $request->validate(product::validateRules());
+    
+       /*   $data = $request->all();
+         $data['slug'] = Str::slug($data['name']);
+       $product = product::create($data);
+ */
+      
+       $request->merge([
+        'slug' => Str::slug($request->post('name')),
+        'store_id' => 1,
+        ]);
+        
+        $data = $request->all();
+
+    if($request->hasFile('image')){
+        $file = $request->file('image');
+        
+        $data['image']= $file->store('/images',['disk' =>'uploads']);
+    }
+    
+    $product = Product::create($data);
+
+       return redirect()->route('admin.products.index')->with('success',"product ($product->name) created!");
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        /* $product = product::findOrFail($id);
+
+        return view('admin.products.show',[
+            'product' => $product,
+           // 'categories'=> Category::all(),
+        ]); */
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+       
+        $product = product::findOrFail($id);
+        return view('admin.products.edit',[
+            'product' => $product,
+            'categories'=> Category::all(),
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $product = product::findOrFail($id);
+        $request->validate(product::validateRules());
+       $previous=false;
+        $data = $request->all();
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $data['image']= $file->store('/images',['disk'=>'uploads']);
+        }
+        $previous = $product->image;
+       $product->update($data);
+       if($previous){
+           Storage::disk('uploads')->delete($previous);
+       }
+       return redirect()->route('admin.products.index')->with('success',"product ($product->name) updated!");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $product = product::findOrFail($id);
+        $product->delete();
+        if($product->image){
+            Storage::disk('uploads')->delete($product->image);
+        }
+        return redirect()->route('admin.products.index')->with('success',"product ($product->name) deleted!");
+    }
+}
