@@ -79,14 +79,26 @@
     <p class="invalid-feedback d-block">{{$message}}</p>
     @enderror
 </div>
-<!-- <div class="form-group mb-3">
+<div class="form-group mb-3">
     <label for="">Tags:</label>
-    <input type="text" name="tags" value="{{old('name',null)}}" class="form-control @error('tags') is-invalid @enderror">
+    <input type="text" name="tags" value="{{old('name',$tags)}}" class="tagify form-control @error('tags') is-invalid @enderror">
     @error('tags')
     <p class="invalid-feedback d-block">{{$message}}</p>
     @enderror
-</div> -->
+</div>
 
 <div class="form-group">
     <button type="submit" class="btn btn-primary">{{$lable_btn ?? 'save'}}</button>
 </div>
+
+@push('css')
+<link rel="stylesheet" href="{{asset('js/tagify/tagify.css')}}">
+@endpush
+@push('js')
+<script src="{{asset('js/tagify/jQuery.tagify.min.js')}}"></script>
+<script src="{{asset('js/tagify/tagify.min.js')}}"></script>
+<script>
+    var inputElm = document.querySelector('.tagify'),
+    tagify = new Tagify (inputElm);
+</script>
+@endpush

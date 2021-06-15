@@ -23,7 +23,7 @@ class product extends Model
             Tag::class,
             'product_tag',
             'product_id',
-            'tags_id',
+            'tag_id',
             'id',
             'id'
         );

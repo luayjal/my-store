@@ -236,6 +236,7 @@
           </div>
         </div>
       </div>
+      
       <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
         <div class="ps-footer__content">
           <div class="ps-container">
@@ -348,7 +349,7 @@
     <script type="text/javascript" src="{{asset('front/plugins/elevatezoom/jquery.elevatezoom.js')}}"></script>
     <script type="text/javascript" src="{{asset('front/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('front/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script><script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script><script type="text/javascript" src="{{asset('front/plugins/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('front/plugins/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>

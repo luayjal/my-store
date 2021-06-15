@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\product;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -39,6 +40,7 @@ class ProductsController extends Controller
         return view('admin.products.create',[
             'product'=> new product(),
             'categories'=>Category::all(),
+            'tags'=>''
         ]);
     }
 
@@ -72,6 +74,8 @@ class ProductsController extends Controller
     
     $product = Product::create($data);
 
+    $product->tags()->attach($this->getTags($request));
+    
        return redirect()->route('admin.products.index')->with('success',"product ($product->name) created!");
     }
 
@@ -101,9 +105,11 @@ class ProductsController extends Controller
     {
        
         $product = product::findOrFail($id);
+        $tags = $product->tags()->pluck('name')->toArray();
         return view('admin.products.edit',[
             'product' => $product,
             'categories'=> Category::all(),
+            'tags'=> implode(',', $tags)
         ]);
     }
 
@@ -130,6 +136,7 @@ class ProductsController extends Controller
        if($previous){
            Storage::disk('uploads')->delete($previous);
        }
+       $product->tags()->sync($this->getTags($request));
        return redirect()->route('admin.products.index')->with('success',"product ($product->name) updated!");
     }
 
@@ -147,5 +154,25 @@ class ProductsController extends Controller
             Storage::disk('uploads')->delete($product->image);
         }
         return redirect()->route('admin.products.index')->with('success',"product ($product->name) deleted!");
+    }
+
+
+    protected function getTags(Request $request){
+        $tag_ids = [];
+        $tags = $request->post('tags');
+        $tags = json_decode($tags);
+        if(is_array($tags) && count($tags) > 0){
+            $product_tags =[];
+            foreach($tags as $tag){
+                $tag_name = $tag->value;
+                $tagModel = Tag::firstOrCreate([
+                    'name' => $tag_name
+                ],[
+                    'slug' => Str::slug($tag_name)
+                ]);
+                $tag_ids[] = $tagModel->id;
+            }
+        }
+        return $tag_ids;
     }
 }

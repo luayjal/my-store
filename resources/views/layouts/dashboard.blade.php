@@ -6,20 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    @stack('css')
     <title>Document</title>
 </head>
 
 <body>
     <header class="py-2 bg-dark text-white mb-4">
         <div class="container">
-            <h1 class="h3">{{ config('app.name') }}</h1>
-            @auth
-            <div class="ms-auto">
-            Hi, {{Auth::user()->name}}
+            <div class="d-flex">
+                <h1 class="h3">{{ config('app.name') }}</h1>
+                @auth
+                <div class="ms-auto">
+                    Hi, {{Auth::user()->name}}
+                    <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+                    <form id="logout" class="d-none" action="{{ route('logout') }}" method="post">
+                        @csrf
+                    </form>
+                </div>
+                @endauth
             </div>
-            @endauth
+
         </div>
-       
+
     </header>
     <div class="container">
         <div class="row">
@@ -39,7 +47,9 @@
             </main>
         </div>
     </div>
-<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    @stack('js')
+
 </body>
 
 </html>
