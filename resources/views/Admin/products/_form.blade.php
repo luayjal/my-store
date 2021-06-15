@@ -43,6 +43,23 @@
     <p class="invalid-feedback d-block">{{$message}}</p>
     @enderror
 </div>
+
+<div class="form-group mb-3">
+    <label for="">Gallery:</label>
+    <div class="row">
+        @foreach($product->images as $image)
+        <div class="col-md-2">
+            <img src="{{$image->image_url}}" alt="" height="60" class="img-fit m-1 border">
+        </div>
+        @endforeach
+    </div>
+  
+    <input type="file" multiple name="gallery[]" class="form-control">
+    @error('gallery')
+    <p class="invalid-feedback d-block">{{$message}}</p>
+    @enderror
+</div>
+
 <div class="form-group mb-3">
     <label for="">Price:</label>
     <input type="number" name="price" value="{{old('price',$product->price)}}" class="form-control @error('price') is-invalid @enderror">
@@ -69,11 +86,11 @@
     <label for="">Status:</label>
     <div>
         <label><input type="radio" name="status" value="in-stock" @if(old('status',$product->status) == 'in-stock') checked @endif >
-        in-stock</label>
+            in-stock</label>
         <label><input type="radio" name="status" value="sold-out" @if(old('status',$product->status) == 'sold-out') checked @endif>
             sold-out</label>
         <label><input type="radio" name="status" value="draft" @if(old('status',$product->status) == 'draft') checked @endif>
-        draft</label>    
+            draft</label>
     </div>
     @error('status')
     <p class="invalid-feedback d-block">{{$message}}</p>
@@ -99,6 +116,6 @@
 <script src="{{asset('js/tagify/tagify.min.js')}}"></script>
 <script>
     var inputElm = document.querySelector('.tagify'),
-    tagify = new Tagify (inputElm);
+        tagify = new Tagify(inputElm);
 </script>
 @endpush

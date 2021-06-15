@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\ProductImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -16,6 +16,10 @@ class product extends Model
 
     public function store(){
         return $this->belongsTo(Store::class,'store_id','id');
+    }
+
+    public function images(){
+        return $this->hasMany(ProductImage::class);
     }
 
     public function tags(){

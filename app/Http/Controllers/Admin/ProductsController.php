@@ -136,7 +136,19 @@ class ProductsController extends Controller
        if($previous){
            Storage::disk('uploads')->delete($previous);
        }
+
        $product->tags()->sync($this->getTags($request));
+
+       if($request->hasFile('gallery')){
+        foreach ($request->file('gallery') as $file) {
+
+            $image_path =  $file->store('/images',['disk'=>'uploads']);
+            $product->images()->create([
+                'image_path'=>$image_path,
+            ]);
+           }
+       }
+      
        return redirect()->route('admin.products.index')->with('success',"product ($product->name) updated!");
     }
 
