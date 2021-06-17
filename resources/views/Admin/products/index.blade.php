@@ -21,6 +21,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>num</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>category Name</th>
@@ -34,6 +35,7 @@
         <tbody>
             @foreach($products as $product)
             <tr>
+                <th>{{$loop->iteration}}</th>
                 <th>{{$product->id}}</th>
                 <th><a href="{{ route('admin.products.edit',$product->id) }}"> {{$product->name}}</a></th>
                 <th>{{$product->category->name}}</th>

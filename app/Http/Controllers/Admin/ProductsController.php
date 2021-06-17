@@ -124,14 +124,15 @@ class ProductsController extends Controller
     {
         $product = product::findOrFail($id);
         $request->validate(product::validateRules());
-       $previous=false;
         $data = $request->all();
+        $previous=false;
 
         if($request->hasFile('image')){
             $file = $request->file('image');
             $data['image']= $file->store('/images',['disk'=>'uploads']);
+     
+            $previous = $product->image;
         }
-        $previous = $product->image;
        $product->update($data);
        if($previous){
            Storage::disk('uploads')->delete($previous);

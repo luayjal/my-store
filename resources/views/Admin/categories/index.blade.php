@@ -19,6 +19,7 @@
     <table class="table">
         <thead>
             <tr>
+                 <th>num</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Parent Name</th>
@@ -29,6 +30,7 @@
         <tbody>
             @foreach($categories as $category)
             <tr>
+                <th>{{$loop->iteration}}</th>
                 <th>{{$category->id}}</th>
                 <th><a href="{{ route('admin.categories.edit',$category->id) }}"> {{$category->name}}</a></th>
                 <th>{{$category->parent->name}}</th>

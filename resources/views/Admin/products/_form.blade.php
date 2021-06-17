@@ -48,8 +48,10 @@
     <label for="">Gallery:</label>
     <div class="row">
         @foreach($product->images as $image)
-        <div class="col-md-2">
-            <img src="{{$image->image_url}}" alt="" height="60" class="img-fit m-1 border">
+        <div class="col-md-2 text-center">
+            <img src="{{$image->image_url}}" id="imageId" alt="" height="80" class="img-fit m-1 border">
+            <button class="btn btn-sm btn-danger" id="deleteGallery" onclick="deleteImage('{{ $image->id }}')" >Delete</button>
+
         </div>
         @endforeach
     </div>
@@ -117,5 +119,11 @@
 <script>
     var inputElm = document.querySelector('.tagify'),
         tagify = new Tagify(inputElm);
+
+        
+    function deleteImage(id) {
+    document.querySelector('#imageId').value = id;
+    document.querySelector('#deleteGallery').submit();
+}
 </script>
 @endpush

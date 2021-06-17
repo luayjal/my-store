@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     @stack('css')
-    <title>Document</title>
+    <title>{{ config('app.name')}}</title>
 </head>
 
 <body>
@@ -35,9 +35,10 @@
                 <h4>Navigation Menu</h4>
                 <nav>
                     <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
-                        <li class="nav-item"><a href="{{route('admin.categories.index')}}" class="nav-link active">Categories</a></li>
-                        <li class="nav-item"><a href="{{route('admin.products.index')}}" class="nav-link">Products</a></li>
+                        <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="{{route('admin.categories.index')}}" class="nav-link @if(URL::current() == route('admin.categories.index')) active @endif">Categories</a></li>
+                        <li class="nav-item"><a href="{{route('admin.products.index')}}" class="nav-link @if(URL::current()== route('admin.products.index')) active @endif">Products</a></li>
+                       
                     </ul>
                 </nav>
             </aside>

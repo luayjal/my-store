@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Front\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-Route::get('/', function () {
-    return view('Front.index');
-});
+
+Route::get('/',[ProductController::class,'index']);
 
 Route::get('admin',[DashboardController::class ,'show']);
 
