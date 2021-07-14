@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Front\ProductController;
+use App\Http\Middleware\CheckUserType;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ use App\Http\Controllers\Front\ProductController;
  */
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware('verified','user.type:admin,user')->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -37,7 +38,7 @@ Route::get('admin',[DashboardController::class ,'show']);
 
  Route::namespace('Admin')
     ->prefix('admin')
-    ->middleware('auth')
+    ->middleware('verified','user.type:user,admin')
     ->as('admin.')
     ->group(function() {
 

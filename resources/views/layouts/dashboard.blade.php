@@ -17,11 +17,23 @@
                 <h1 class="h3">{{ config('app.name') }}</h1>
                 @auth
                 <div class="ms-auto">
-                    Hi, {{Auth::user()->name}}
-                    <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
-                    <form id="logout" class="d-none" action="{{ route('logout') }}" method="post">
-                        @csrf
-                    </form>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hi, {{Auth::user()->name}}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <button  class="dropdown-item" onclick="document.getElementById('logout').submit()">Logout</button>
+                                <form id="logout" class="d-none" action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
                 @endauth
             </div>
@@ -38,7 +50,7 @@
                         <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">Dashboard</a></li>
                         <li class="nav-item"><a href="{{route('admin.categories.index')}}" class="nav-link @if(URL::current() == route('admin.categories.index')) active @endif">Categories</a></li>
                         <li class="nav-item"><a href="{{route('admin.products.index')}}" class="nav-link @if(URL::current()== route('admin.products.index')) active @endif">Products</a></li>
-                       
+
                     </ul>
                 </nav>
             </aside>

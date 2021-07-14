@@ -100,7 +100,7 @@ class CategoriesController extends Controller
             abort(404);
         }   */ 
         
-        $parents = Category::where('id', '<>', $id)
+        $parents = Category::where('id', '!=', $id)
             ->orderBy('name', 'asc')
             ->get();
 

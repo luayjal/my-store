@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
+                        <h1>My Store</h1>
                     </a>
                 </div>
 
@@ -16,6 +17,17 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                        {{ __('Categories') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
+                        {{ __('Products') }}
+                    </x-nav-link>
+                </div>
+                
             </div>
 
             <!-- Settings Dropdown -->

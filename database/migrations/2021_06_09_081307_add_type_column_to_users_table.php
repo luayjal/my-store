@@ -15,7 +15,9 @@ class AddTypeColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             
-            //
+            $table->enum('type',['user','store','admin'])
+            ->default('user')
+            ->after('password');
         });
     }
 
@@ -27,7 +29,7 @@ class AddTypeColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('type');
         });
     }
 }
