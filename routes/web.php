@@ -29,7 +29,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/',[ProductController::class,'index']);
+Route::get('/',[ProductController::class,'index'])->name('index');
+
 
 Route::get('admin',[DashboardController::class ,'show']);
 
@@ -58,3 +59,7 @@ Route::get('admin',[DashboardController::class ,'show']);
         Route::resource('products', 'ProductsController');
 
     }); 
+
+/******** Front Route *******/
+
+Route::get('product-details/{slug}',[ProductController::class,'show'])->name('product.details');

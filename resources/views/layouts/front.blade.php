@@ -1,368 +1,816 @@
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7"><![endif]-->
-<!--[if IE 8]><html class="ie ie8"><![endif]-->
-<!--[if IE 9]><html class="ie ie9"><![endif]-->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
-    <meta name="keywords" content="Default Description">
-    <meta name="description" content="Default keyword">
-    <title>Sky - Homepage</title>
-    <!-- Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('front/plugins/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/ps-icon/style.css')}}">
-    <!-- CSS Library-->
-    <link rel="stylesheet" href="{{asset('front/plugins/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/owl-carousel/assets/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/slick/slick/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/Magnific-Popup/dist/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/jquery-ui/jquery-ui.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/revolution/css/settings.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/revolution/css/layers.css')}}">
-    <link rel="stylesheet" href="{{asset('front/plugins/revolution/css/navigation.css')}}">
-    <!-- Custom-->
-    <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
-    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
-    <!--WARNING: Respond.js doesn't work if you view the page via file://-->
-    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
-  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
-  <body class="ps-loading">
-    <div class="header--sidebar"></div>
-    <header class="header">
-      <div class="header__top">
-        <div class="container-fluid">
-          <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
-                </div>
-                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
-                @auth
-                <div class="header__actions"><a href="#">{{Auth::user()->name}}</a>
-                @endauth
-                @guest
-                  <div class="header__actions"><a href="{{route('login')}}">Login & Regiser</a>
-                @endguest   
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"><img src="/front/images/flag/usa.svg" alt=""> USD</a></li>
-                        <li><a href="#"><img src="/front/images/flag/singapore.svg" alt=""> SGD</a></li>
-                        <li><a href="#"><img src="/front/images/flag/japan.svg" alt=""> JPN</a></li>
-                      </ul>
-                    </div>
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Japanese</a></li>
-                        <li><a href="#">Chinese</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-          </div>
-        </div>
-      </div>
-      <nav class="navigation">
-        <div class="container-fluid">
-          <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="/front/images/logo.png" alt=""></a></div>
-          </div>
-          <div class="navigation__column center">
-                <ul class="main-menu menu">
-                  <li class="menu-item menu-item-has-children dropdown"><a href="index.html">Home</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item"><a href="index.html">Homepage #1</a></li>
-                          <li class="menu-item"><a href="#">Homepage #2</a></li>
-                          <li class="menu-item"><a href="#">Homepage #3</a></li>
-                        </ul>
-                  </li>
-                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-                    <div class="mega-menu">
-                      <div class="mega-wrap">
-                        <div class="mega-column">
-                          <ul class="mega-item mega-features">
-                            <li><a href="product-listing.html">NEW RELEASES</a></li>
-                            <li><a href="product-listing.html">FEATURES SHOES</a></li>
-                            <li><a href="product-listing.html">BEST SELLERS</a></li>
-                            <li><a href="product-listing.html">NOW TRENDING</a></li>
-                            <li><a href="product-listing.html">SUMMER ESSENTIALS</a></li>
-                            <li><a href="product-listing.html">MOTHER'S DAY COLLECTION</a></li>
-                            <li><a href="product-listing.html">FAN GEAR</a></li>
-                          </ul>
-                        </div>
-                        <div class="mega-column">
-                          <h4 class="mega-heading">Shoes</h4>
-                          <ul class="mega-item">
-                            <li><a href="product-listing.html">All Shoes</a></li>
-                            <li><a href="product-listing.html">Running</a></li>
-                            <li><a href="product-listing.html">Training & Gym</a></li>
-                            <li><a href="product-listing.html">Basketball</a></li>
-                            <li><a href="product-listing.html">Football</a></li>
-                            <li><a href="product-listing.html">Soccer</a></li>
-                            <li><a href="product-listing.html">Baseball</a></li>
-                          </ul>
-                        </div>
-                        <div class="mega-column">
-                          <h4 class="mega-heading">CLOTHING</h4>
-                          <ul class="mega-item">
-                            <li><a href="product-listing.html">Compression & Nike Pro</a></li>
-                            <li><a href="product-listing.html">Tops & T-Shirts</a></li>
-                            <li><a href="product-listing.html">Polos</a></li>
-                            <li><a href="product-listing.html">Hoodies & Sweatshirts</a></li>
-                            <li><a href="product-listing.html">Jackets & Vests</a></li>
-                            <li><a href="product-listing.html">Pants & Tights</a></li>
-                            <li><a href="product-listing.html">Shorts</a></li>
-                          </ul>
-                        </div>
-                        <div class="mega-column">
-                          <h4 class="mega-heading">Accessories</h4>
-                          <ul class="mega-item">
-                            <li><a href="product-listing.html">Compression & Nike Pro</a></li>
-                            <li><a href="product-listing.html">Tops & T-Shirts</a></li>
-                            <li><a href="product-listing.html">Polos</a></li>
-                            <li><a href="product-listing.html">Hoodies & Sweatshirts</a></li>
-                            <li><a href="product-listing.html">Jackets & Vests</a></li>
-                            <li><a href="product-listing.html">Pants & Tights</a></li>
-                            <li><a href="product-listing.html">Shorts</a></li>
-                          </ul>
-                        </div>
-                        <div class="mega-column">
-                          <h4 class="mega-heading">BRAND</h4>
-                          <ul class="mega-item">
-                            <li><a href="product-listing.html">NIKE</a></li>
-                            <li><a href="product-listing.html">Adidas</a></li>
-                            <li><a href="product-listing.html">Dior</a></li>
-                            <li><a href="product-listing.html">B&G</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="menu-item"><a href="#">Women</a></li>
-                  <li class="menu-item"><a href="#">Kids</a></li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.html">Blog-grid</a>
-                                <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.html">Blog Grid 1</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.html">Blog Grid 2</a></li>
-                                </ul>
-                          </li>
-                          <li class="menu-item"><a href="blog-list.html">Blog List</a></li>
-                        </ul>
-                  </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Contact</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item"><a href="contact-us.html">Contact Us #1</a></li>
-                          <li class="menu-item"><a href="contact-us.html">Contact Us #2</a></li>
-                        </ul>
-                  </li>
-                </ul>
-          </div>
-          <div class="navigation__column right">
-            <form class="ps-search--header" action="do_action" method="post">
-              <input class="form-control" type="text" placeholder="Search Product…">
-              <button><i class="ps-icon-search"></i></button>
-            </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i>20</i></span><i class="ps-icon-shopping-cart"></i></a>
-              <div class="ps-cart__listing">
-                <div class="ps-cart__content">
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/1.jpg" alt=""></div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Amazin’ Glazin’</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/2.jpg" alt=""></div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">The Crusty Croissant</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/3.jpg" alt=""></div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">The Rolling Pin</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="ps-cart__total">
-                  <p>Number of items:<span>36</span></p>
-                  <p>Item Total:<span>£528.00</span></p>
-                </div>
-                <div class="ps-cart__footer"><a class="ps-btn" href="cart.html">Check out<i class="ps-icon-arrow-left"></i></a></div>
-              </div>
-            </div>
-            <div class="menu-toggle"><span></span></div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="header-services">
-      <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-      </div>
-    </div>
+
+<head>
+    <title>{{ config('app.name')}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{{asset('front/images/icons/favicon.png')}}" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/fonts/iconic/css/material-design-iconic-font.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/fonts/linearicons-v1.0.0/icon-font.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/animate/animate.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/css-hamburgers/hamburgers.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/animsition/css/animsition.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/select2/select2.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/daterangepicker/daterangepicker.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/slick/slick.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/MagnificPopup/magnific-popup.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{asset('front/css/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/css/main.css')}}">
+    <!--===============================================================================================-->
+</head>
+
+<body class="animsition">
+
+  	<!-- Header -->
+	<header class="header-v2">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop trans-03">
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop p-l-45">
+					
+					<!-- Logo desktop -->		
+					<a href="#" class="logo">
+						<img src='{{asset("front/images/icons/logo-01.png")}}' alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="/">Home</a>
+							</li>
+
+							<li>
+								<a href="product.html">Shop</a>
+							</li>
+
+							<li class="label1" data-label1="hot">
+								<a href="shoping-cart.html">Features</a>
+							</li>
+
+							<li>
+								<a href="blog.html">Blog</a>
+							</li>
+
+							<li>
+								<a href="about.html">About</a>
+							</li>
+
+							<li>
+								<a href="contact.html">Contact</a>
+							</li>
+						</ul>
+					</div>	
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m h-full">
+						<div class="flex-c-m h-full p-r-24">
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+								<i class="zmdi zmdi-search"></i>
+							</div>
+						</div>
+							
+						<div class="flex-c-m h-full p-l-18 p-r-25 bor5">
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+						</div>
+							
+						<div class="flex-c-m h-full p-lr-19">
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
+								<i class="zmdi zmdi-menu"></i>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="/"><img src='{{asset("front/images/icons/logo-01.png")}}' alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
+				<div class="flex-c-m h-full p-r-10">
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+						<i class="zmdi zmdi-search"></i>
+					</div>
+				</div>
+
+				<div class="flex-c-m h-full p-lr-10 bor5">
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+						<i class="zmdi zmdi-shopping-cart"></i>
+					</div>
+				</div>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="main-menu-m">
+				<li>
+					<a href="/">Home</a>
+					
+					<span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</span>
+				</li>
+
+				<li>
+					<a href="product.html">Shop</a>
+				</li>
+
+				<li>
+					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+				</li>
+
+				<li>
+					<a href="blog.html">Blog</a>
+				</li>
+
+				<li>
+					<a href="about.html">About</a>
+				</li>
+
+				<li>
+					<a href="contact.html">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src='{{asset("front/images/icons/icon-close2.png")}}' alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+
+	<!-- Sidebar -->
+	<aside class="wrap-sidebar js-sidebar">
+		<div class="s-full js-hide-sidebar"></div>
+
+		<div class="sidebar flex-col-l p-t-22 p-b-25">
+			<div class="flex-r w-full p-b-30 p-r-27">
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-sidebar">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+
+			<div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
+				<ul class="sidebar-link w-full">
+					<li class="p-b-13">
+						<a href="index.html" class="stext-102 cl2 hov-cl1 trans-04">
+							Home
+						</a>
+					</li>
+
+					<li class="p-b-13">
+						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+							My Wishlist
+						</a>
+					</li>
+
+					<li class="p-b-13">
+						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+							My Account
+						</a>
+					</li>
+
+					<li class="p-b-13">
+						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+							Track Oder
+						</a>
+					</li>
+
+					<li class="p-b-13">
+						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+							Refunds
+						</a>
+					</li>
+
+					<li class="p-b-13">
+						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+							Help & FAQs
+						</a>
+					</li>
+				</ul>
+
+				<div class="sidebar-gallery w-full p-tb-30">
+					<span class="mtext-101 cl5">
+						@ CozaStore
+					</span>
+
+					<div class="flex-w flex-sb p-t-36 gallery-lb">
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-01.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-01.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-02.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-02.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-03.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-03.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-04.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-04.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-05.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-05.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-06.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-06.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-07.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-07.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-08.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-08.jpg');"></a>
+						</div>
+
+						<!-- item gallery sidebar -->
+						<div class="wrap-item-gallery m-b-10">
+							<a class="item-gallery bg-img1" href="images/gallery-09.jpg" data-lightbox="gallery" 
+							style="background-image: url('images/gallery-09.jpg');"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="sidebar-gallery w-full">
+					<span class="mtext-101 cl5">
+						About Us
+					</span>
+
+					<p class="stext-108 cl6 p-t-27">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis. 
+					</p>
+				</div>
+			</div>
+		</div>
+	</aside>
+
+
+	<!-- Cart -->
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2">
+					Your Cart
+				</span>
+
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src='{{asset("front/images/item-cart-01.jpg")}}' alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								White Shirt Pleat
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $19.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src='{{asset("front/images/item-cart-02.jpg")}}' alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Converse All Star
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $39.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src='{{asset("front/images/item-cart-03.jpg")}}' alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Nixon Porter Leather
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $17.00
+							</span>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div>
+
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
+
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 
     
-    <main class="ps-main">
+    {{$slot}}
 
-        @yield('content')
+    <!-- Footer -->
+    <footer class="bg3 p-t-75 p-b-32">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Categories
+                    </h4>
 
-      <div class="ps-subscribe">
-        <div class="ps-container">
-          <div class="row">
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-                  <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
-                </div>
-                <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
-                  <form class="ps-subscribe__form" action="do_action" method="post">
-                    <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
-                  </form>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                  <p>...and receive  <span>$20</span>  coupon for first shopping.</p>
-                </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
-        <div class="ps-footer__content">
-          <div class="ps-container">
-            <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--info">
-                      <header><a class="ps-logo" href="index.html"><img src="images/logo-white.png" alt=""></a>
-                        <h3 class="ps-widget__title">Address Office 1</h3>
-                      </header>
-                      <footer>
-                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
-                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
-                        <p>Phone: +323 32434 5334</p>
-                        <p>Fax: ++323 32434 5333</p>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--info second">
-                      <header>
-                        <h3 class="ps-widget__title">Address Office 2</h3>
-                      </header>
-                      <footer>
-                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
-                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
-                        <p>Phone: +323 32434 5334</p>
-                        <p>Fax: ++323 32434 5333</p>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Find Our store</h3>
-                      </header>
-                      <footer>
-                        <ul class="ps-list--link">
-                          <li><a href="#">Coupon Code</a></li>
-                          <li><a href="#">SignUp For Email</a></li>
-                          <li><a href="#">Site Feedback</a></li>
-                          <li><a href="#">Careers</a></li>
-                        </ul>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Get Help</h3>
-                      </header>
-                      <footer>
-                        <ul class="ps-list--line">
-                          <li><a href="#">Order Status</a></li>
-                          <li><a href="#">Shipping and Delivery</a></li>
-                          <li><a href="#">Returns</a></li>
-                          <li><a href="#">Payment Options</a></li>
-                          <li><a href="#">Contact Us</a></li>
-                        </ul>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Products</h3>
-                      </header>
-                      <footer>
-                        <ul class="ps-list--line">
-                          <li><a href="#">Shoes</a></li>
-                          <li><a href="#">Clothing</a></li>
-                          <li><a href="#">Accessries</a></li>
-                          <li><a href="#">Football Boots</a></li>
-                        </ul>
-                      </footer>
-                    </aside>
-                  </div>
-            </div>
-          </div>
-        </div>
-        <div class="ps-footer__copyright">
-          <div class="ps-container">
-            <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <ul class="ps-social">
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <ul>
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Women
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Men
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Shoes
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Watches
+                            </a>
+                        </li>
                     </ul>
-                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Help
+                    </h4>
+
+                    <ul>
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Track Order
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Shipping
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                FAQs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        GET IN TOUCH
+                    </h4>
+
+                    <p class="stext-107 cl7 size-201">
+                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    </p>
+
+                    <div class="p-t-27">
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Newsletter
+                    </h4>
+
+                    <form>
+                        <div class="wrap-input1 w-full p-b-4">
+                            <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+                            <div class="focus-input1 trans-04"></div>
+                        </div>
+
+                        <div class="p-t-18">
+                            <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
+
+            <div class="p-t-40">
+                <div class="flex-c-m flex-w p-b-18">
+                    <a href="#" class="m-all-1">
+                        <img src="{{asset('front/images/icons/icon-pay-01.png')}}" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="{{asset('front/images/icons/icon-pay-02.png')}}" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="{{asset('front/images/icons/icon-pay-03.png')}}" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="{{asset('front/images/icons/icon-pay-04.png')}}" alt="ICON-PAY">
+                    </a>
+
+                    <a href="#" class="m-all-1">
+                        <img src="{{asset('front/images/icons/icon-pay-05.png')}}" alt="ICON-PAY">
+                    </a>
+                </div>
+
+                <p class="stext-107 cl6 txt-center">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                </p>
+            </div>
         </div>
-      </div>
-    </main>
-    <!-- JS Library-->
-    <script type="text/javascript" src="{{asset('front/plugins/jquery/dist/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/jquery-bar-rating/dist/jquery.barrating.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/owl-carousel/owl.carousel.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/gmap3.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/imagesloaded.pkgd.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/isotope.pkgd.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/jquery.matchHeight-min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/slick/slick/slick.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/elevatezoom/jquery.elevatezoom.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('front/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script><script type="text/javascript" src="{{asset('front/plugins/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('front/plugins/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
-    <!-- Custom scripts-->
-    <script type="text/javascript" src="{{('front/js/main.js')}}"></script>
-  </body>
+    </footer>
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    <!-- Modal1 -->
+    <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+        <div class="overlay-modal1 js-hide-modal1"></div>
+
+        <div class="container">
+            <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+                <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                    <img src="{{asset('front/images/icons/icon-close.png')}}" alt="CLOSE">
+                </button>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-7 p-b-30">
+                        <div class="p-l-25 p-r-30 p-lr-0-lg">
+                            <div class="wrap-slick3 flex-sb flex-w">
+                                <div class="wrap-slick3-dots"></div>
+                                <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                                <div class="slick3 gallery-lb">
+                                    <div class="item-slick3" data-thumb="{{asset('front/images/product-detail-01.jpg')}}">
+                                        <div class="wrap-pic-w pos-relative">
+                                            <img src="{{asset('front/images/product-detail-01.jpg')}}" alt="IMG-PRODUCT">
+
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="item-slick3" data-thumb="{{asset('front/images/product-detail-02.jpg')}}">
+                                        <div class="wrap-pic-w pos-relative">
+                                            <img src="{{asset('front/images/product-detail-02.jpg')}}" alt="IMG-PRODUCT">
+
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="item-slick3" data-thumb="{{asset('front/images/product-detail-03.jpg')}}">
+                                        <div class="wrap-pic-w pos-relative">
+                                            <img src="{{asset('front/images/product-detail-03.jpg')}}" alt="IMG-PRODUCT">
+
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-5 p-b-30">
+                        <div class="p-r-50 p-t-5 p-lr-0-lg">
+                            <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                                Lightweight Jacket
+                            </h4>
+
+                            <span class="mtext-106 cl2">
+                                $58.79
+                            </span>
+
+                            <p class="stext-102 cl3 p-t-23">
+                                Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                            </p>
+
+                            <!--  -->
+                            <div class="p-t-33">
+                                <div class="flex-w flex-r-m p-b-10">
+                                    <div class="size-203 flex-c-m respon6">
+                                        Size
+                                    </div>
+
+                                    <div class="size-204 respon6-next">
+                                        <div class="rs1-select2 bor8 bg0">
+                                            <select class="js-select2" name="time">
+                                                <option>Choose an option</option>
+                                                <option>Size S</option>
+                                                <option>Size M</option>
+                                                <option>Size L</option>
+                                                <option>Size XL</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex-w flex-r-m p-b-10">
+                                    <div class="size-203 flex-c-m respon6">
+                                        Color
+                                    </div>
+
+                                    <div class="size-204 respon6-next">
+                                        <div class="rs1-select2 bor8 bg0">
+                                            <select class="js-select2" name="time">
+                                                <option>Choose an option</option>
+                                                <option>Red</option>
+                                                <option>Blue</option>
+                                                <option>White</option>
+                                                <option>Grey</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex-w flex-r-m p-b-10">
+                                    <div class="size-204 flex-w flex-m respon6-next">
+                                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                            </div>
+
+                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                            </div>
+                                        </div>
+
+                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                            Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--  -->
+                            <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                                <div class="flex-m bor9 p-r-10 m-r-11">
+                                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+                                        <i class="zmdi zmdi-favorite"></i>
+                                    </a>
+                                </div>
+
+                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+
+                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+
+                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/animsition/js/animsition.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{asset('front/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/select2/select2.min.js')}}"></script>
+    <script>
+        $(".js-select2").each(function() {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{asset('front/vendor/daterangepicker/daterangepicker.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/slick/slick.min.js')}}"></script>
+    <script src="{{asset('front/js/slick-custom.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/parallax100/parallax100.js')}}"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/MagnificPopup/jquery.magnific-popup.min.js')}}"></script>
+    <script>
+        $('.gallery-lb').each(function() { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/isotope/isotope.pkgd.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/sweetalert/sweetalert.min.js')}}"></script>
+    <script>
+        $('.js-addwish-b2').on('click', function(e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function() {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function() {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function() {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script>
+        $('.js-pscroll').each(function() {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function() {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{asset('front/js/main.js')}}"></script>
+
+</body>
+
 </html>
