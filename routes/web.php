@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Front\CheckoutController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProductController;
 use App\Http\Middleware\CheckUserType;
 
@@ -29,14 +32,18 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/',[ProductController::class,'index'])->name('index');
+/******** Front Route *******/
+
+Route::get('/',[HomeController::class,'index'])->name('index');
+Route::get('product-details/{slug}',[ProductController::class,'show'])->name('product.details');
+Route::get('cart',[CartController::class,'index'])->name('view.cart');
+Route::post('cart',[CartController::class,'store'])->name('cart');
+
+Route::get('checkout',[CheckoutController::class,'index']);
+Route::post('checkout',[CheckoutController::class,'store'])->name('checkout');
 
 
-Route::get('admin',[DashboardController::class ,'show']);
-
-
-
-
+/* Back End Route */
  Route::namespace('Admin')
     ->prefix('admin')
     ->middleware('verified','user.type:user,admin')
@@ -60,6 +67,3 @@ Route::get('admin',[DashboardController::class ,'show']);
 
     }); 
 
-/******** Front Route *******/
-
-Route::get('product-details/{slug}',[ProductController::class,'show'])->name('product.details');

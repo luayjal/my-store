@@ -9,21 +9,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
-        $sliderProducts = product::latest()->take(3)->get()->where('status','in-stock');
-        $products = product::latest()->take(20)->get()->where('status','in-stock');
-       $categories = Category::orderBy('name', 'asc')->with('children')->whereDoesntHave('parent')->get();
-       
-       
-       return view('front.index',[
-            'sliderProducts' => $sliderProducts,
-            'products' => $products,
-            'categories'=> $categories
-        ]);
-    }
+    
 
     public function show($slug){
-        $product = product::where('slug' , $slug)->first();
+        $product = product::where('slug' , $slug)->firstOrFail();
         
         return view('front.product-detail',[
             'product' => $product,
