@@ -22,7 +22,7 @@ class ProductsController extends Controller
         $products = product::with('category')
         ->latest()
         ->orderBy('name','ASC')
-        ->paginate(5);
+        ->paginate(10);
 
         return view('admin.products.index',[
             'products' => $products,

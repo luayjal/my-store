@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Front\CheckoutController;
@@ -27,7 +29,7 @@ use App\Http\Middleware\CheckUserType;
 });
  */
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('Admin.dashboard');
 })->middleware('verified','user.type:admin,user')->name('dashboard');
 
 require __DIR__.'/auth.php';
@@ -64,6 +66,7 @@ Route::post('checkout',[CheckoutController::class,'store'])->name('checkout');
             Route::delete('/{id}',[CategoriesController::class,'delete'])->name('delete');
         });
         Route::resource('products', 'ProductsController');
+        Route::resource('tags', 'TagsController');
+        Route::post('mark-read', [NotificationController::class,'markRead'])->name('mark.read');
 
     }); 
-

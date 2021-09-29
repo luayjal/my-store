@@ -7,8 +7,8 @@
         <a href="{{route('admin.categories.create')}}" class="btn btn-info">Add New</a>
     </div>
     <form action="{{URL::current()}}" method="get" class="d-flex">
-        <input type="text" name="name" class="form-control me-2" placeholder="Search By Name">
-        <select name="parent_id" class="form-control me-2">
+        <input type="text" name="name" class="form-control col-4 mx-2 me-2" placeholder="Search By Name">
+        <select name="parent_id" class="form-control col-4 mx-2 me-2">
             <option value="">All Categories</option>
             @foreach($parents as $parent)
             <option value="{{$parent->id}}">{{$parent->name}}</option>
@@ -16,7 +16,7 @@
         </select>
         <button type="submit" class="btn btn-secondary">Filter</button>
     </form>
-    <table class="table">
+    <table class="table table-bordered mt-3">
         <thead>
             <tr>
                  <th>num</th>
@@ -32,15 +32,16 @@
             <tr>
                 <th>{{$loop->iteration}}</th>
                 <th>{{$category->id}}</th>
-                <th><a href="{{ route('admin.categories.edit',$category->id) }}"> {{$category->name}}</a></th>
+                <th>{{$category->name}}</th>
                 <th>{{$category->parent->name}}</th>
                 <th>{{$category->created_at}}</th>
                 <th>{{$category->status}}</th>
                 <th>
-                    <form action="{{ route('admin.categories.delete',$category->id) }}" method="post">
+                    <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.categories.edit',$category->id) }}"><i class="far fa-edit"></i></a>
+                    <form class="d-inline" action="{{ route('admin.categories.delete',$category->id) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt "></i></button>
                     </form>
                 </th>
             </tr>

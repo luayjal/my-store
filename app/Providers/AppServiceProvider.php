@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
        $this->app->bind('cart.id',function(){
 
         $id = Cookie::get('cart_id');
+        
         if (!$id) {
             $id = Str::uuid();
             Cookie::queue('cart_id', $id, 60 * 24 * 30);

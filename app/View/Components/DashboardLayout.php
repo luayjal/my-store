@@ -2,11 +2,19 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Route;
 
 class DashboardLayout extends Component
 {
    public $title;
+
+   
+ 
     /**
      * Create a new component instance.
      *
@@ -15,6 +23,7 @@ class DashboardLayout extends Component
     public function __construct($title)
     {
         $this->title = $title;
+       
     }
 
     /**
@@ -24,6 +33,20 @@ class DashboardLayout extends Component
      */
     public function render()
     {
-        return view('layouts.dashboard');
+         
+        $user = Auth::user();
+        
+        //$notifications = Notification::latest()->take(5)->get();
+        $notifications = $user->notifications->take(10);
+        $unreadnotifications = $notifications->where('read_at',null)->count();
+
+       // dd($unreadnotifications);
+        
+      //  dd($notifications);
+       
+        return view('layouts.dashboard',[
+                'notifications'=> $notifications,
+                'unreadnotifications'=>$unreadnotifications
+        ]);
     }
 }

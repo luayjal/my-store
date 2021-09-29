@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use App\Models\Order;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Throwable;
+
+use App\Models\Cart;
+use App\Models\User;
+use App\Models\Order;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewOrderCreateNotif;
 
 class CheckoutController extends Controller
 {
@@ -58,7 +62,10 @@ class CheckoutController extends Controller
             ]);
          }
           Cart::where('cart_id', App::make('cart.id'))->delete();
+          
          DB::commit();
+         $user = User::where('type','=','admin')->first();
+         $user->notify(new NewOrderCreateNotif($order));
          return redirect('/')->with('status','Thank You! Your order has placed!');
       } 
       catch (Throwable $e) {
